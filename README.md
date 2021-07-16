@@ -30,4 +30,7 @@
 # アプリを作ろうと思った経緯
 Youtuber達の中で人気の企画「○○王」からインスピレーションを受けました。
 彼らが動画内で楽しんでいる企画を、友達同士でもやれたらいいなと思ったのがきっかけです。
- 
+
+
+# 画面遷移図
+https://www.figma.com/file/l6bIvsaOp4j154FVaHE2Lb/Untitled?node-id=0%3A1
