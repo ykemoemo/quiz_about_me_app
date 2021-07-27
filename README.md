@@ -34,3 +34,7 @@ Youtuber達の中で人気の企画「○○王」からインスピレーショ
 
 # 画面遷移図
 https://www.figma.com/file/l6bIvsaOp4j154FVaHE2Lb/Untitled?node-id=0%3A1
+
+
+# ER図
+https://drive.google.com/file/d/1wK-u39xlDyUYh40qKu6T38vKo9LyKnUL/view?usp=sharing
