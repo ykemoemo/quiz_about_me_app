@@ -1,0 +1,14 @@
+= form_with url: {controler: 'questions', action: 'create' } do |f|
+  - @questions.each do |question|
+    h5 = question.body
+    = f.fields_for question do |q|
+      - question.choices.each do |choice|
+        = q.fields_for choice do |c|
+         .form-group
+            = c.check_box :correct_answer
+            = c.label :correct_answer, choice.body
+        br
+      br
+  = f.submit '作成する', class: 'btn btn-primary'
+br
+br

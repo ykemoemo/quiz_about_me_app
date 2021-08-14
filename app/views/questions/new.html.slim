@@ -1,0 +1,15 @@
+= form_with model: @question, url: quiz_questions_path, local: true do |f| 
+  .form-group
+    = f.label :body, "質問"
+    = f.text_field :body, class: 'form-control', id: 'question_body'
+
+  = f.fields_for :choices do |c|
+    .form-group
+      = c.check_box :correct_answer
+      = c.text_field :body
+  = f.fields_for :choices do |c|
+    .form-group
+      = c.check_box :correct_answer
+      = c.text_field :body
+
+  = f.submit '問題を追加する', class: 'btn btn-primary'
