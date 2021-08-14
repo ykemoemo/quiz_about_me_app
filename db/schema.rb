@@ -15,21 +15,27 @@ ActiveRecord::Schema.define(version: 2021_07_30_071705) do
   create_table "challengers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.integer "score", null: false
+    t.bigint "quiz_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["quiz_id"], name: "index_challengers_on_quiz_id"
   end
 
   create_table "choices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "body", null: false
     t.boolean "correct_answer", default: false, null: false
+    t.bigint "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_choices_on_question_id"
   end
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "body", null: false
+    t.bigint "quiz_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["quiz_id"], name: "index_questions_on_quiz_id"
   end
 
   create_table "quizzes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -38,4 +44,7 @@ ActiveRecord::Schema.define(version: 2021_07_30_071705) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "challengers", "quizzes"
+  add_foreign_key "choices", "questions"
+  add_foreign_key "questions", "quizzes"
 end

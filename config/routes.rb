@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'quizzes#top'
-  resources :quizzes
+  root to: 'quizzes#new'
+  resources :quizzes do
+    resources :questions
+    resources :challengers
+  end
 end

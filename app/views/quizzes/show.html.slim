@@ -1,0 +1,10 @@
+h1 #{@quiz.creator_name}王を作成しました
+br
+
+- @questions.each do |question|
+  h5 = question.body
+  - question.choices.each do |choice|
+    p  = choice.body
+  br 
+
+p 問題を共有しよう

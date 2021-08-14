@@ -1,0 +1,36 @@
+h1 クイズ作成ページ
+
+h4 #{@quiz.creator_name}王
+
+= form_with url: {controler: 'questions', action: 'create' } do |f|
+  - @questions.each do |question|
+    h5 = question.body
+    = f.fields_for question do |q|
+      - question.choices.each do |choice|
+        = q.fields_for choice do |c|
+         .form-group
+            = c.check_box :correct_answer
+            = c.label :correct_answer, choice.body
+        br
+      br
+  = f.submit '作成する', class: 'btn btn-primary'
+br
+br
+= link_to '作成する', quiz_path(@quiz)
+
+= form_with model: @question, url: quiz_questions_path, local: true do |f| 
+  .form-group
+    = f.label :body, "質問"
+    = f.text_field :body, class: 'form-control', id: 'question_body'
+
+  = f.fields_for :choices do |c|
+    .form-group
+      = c.check_box :correct_answer
+      = c.text_field :body
+  = f.fields_for :choices do |c|
+    .form-group
+      = c.check_box :correct_answer
+      = c.text_field :body
+
+  = f.submit '問題を追加する', class: 'btn btn-primary'
+  
