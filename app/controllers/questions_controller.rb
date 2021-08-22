@@ -7,25 +7,22 @@ class QuestionsController < ApplicationController
     #if @questions.blank?
       #default_questions
     #end
+
     @question = Question.new
     @question.choices.build
   end
 
   def show
+    @challenger = @quiz.challengers.find(params[:challenger_id])
+    @question = @quiz.questions.find(params[:id])
   end
 
   def new
-    @question = Question.new
-    @question.choices.build
   end
 
   def create
-    @question = @quiz.questions.create(question_params)
-    if @question.save!
-      redirect_to quiz_questions_path
-    else
-      render :new
-    end
+    @question = @quiz.questions.create!(question_params)
+    redirect_to quiz_questions_path
   end
 
   def edit
@@ -33,10 +30,8 @@ class QuestionsController < ApplicationController
 
   def update
     @question = @quiz.questions.find(params[:id])
-    if @question.update(correct_answer_params)
-      redirect_to quiz_question_path
-    else
-      render :new
+    if @question.update!(correct_answer_params)
+      redirect_to quiz_questions_path
     end
   end
 
@@ -46,13 +41,10 @@ class QuestionsController < ApplicationController
     @quiz = Quiz.find(params[:quiz_id])
   end
 
-  def correct_answer_params
-    params.require(:question).permit(choices_attributes:[:id, :correct_answer]).merge(quiz_id: params[:quiz_id])
-  end
-
   def question_params
     params.require(:question).permit(:body, choices_attributes:[:id, :body, :correct_answer]).merge(quiz_id: params[:quiz_id])
   end
+
   def default_questions
     @question_1 = Question.create!( quiz_id: params[:quiz_id], body: "食べるならどっち？" )
       @question_1.choices.create!([

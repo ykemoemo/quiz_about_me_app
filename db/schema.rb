@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2021_07_30_071705) do
 
   create_table "challengers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "score", null: false
+    t.integer "score", default: 0, null: false
     t.bigint "quiz_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
