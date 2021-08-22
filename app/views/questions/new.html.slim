@@ -1,15 +1,23 @@
-= form_with model: @question, url: quiz_questions_path, local: true do |f| 
-  .form-group
-    = f.label :body, "質問"
-    = f.text_field :body, class: 'form-control', id: 'question_body'
+- @questions.each do |question|
+  h4 = question.body
+  - if flash.present?
+    - question.choices.each do |choice|
+      = button_to choice.body, set_correct_answer_quiz_question_choice_path(@quiz.id, question.id, choice.id), remote: true, disabled: true 
+  - else
+    - question.choices.each do |choice|
+      = button_to choice.body, set_correct_answer_quiz_question_choice_path(@quiz.id, question.id, choice.id), remote: true
+  br
+br
 
-  = f.fields_for :choices do |c|
-    .form-group
-      = c.check_box :correct_answer
-      = c.text_field :body
-  = f.fields_for :choices do |c|
-    .form-group
-      = c.check_box :correct_answer
-      = c.text_field :body
-
-  = f.submit '問題を追加する', class: 'btn btn-primary'
+= form_with model: @question, url: quiz_questions_path, local: true do |f|
+  - @questions.each do |question|
+    h4 = question.body
+    - question.choices.each do |choice|
+      = f.fields_for :choice do |c|
+        .form-group
+          = c.check_box :correct_answer
+          = c.label :correct_answer, choice.body
+    br
+  = f.submit '作成', class: 'btn btn-primary'
+  br
+br

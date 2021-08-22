@@ -13,11 +13,8 @@ class QuizzesController < ApplicationController
 
   def create
     @quiz = Quiz.new(quiz_params)
-    if @quiz.save
+    if @quiz.save!
       redirect_to quiz_questions_path(@quiz.id)
-    else
-      flash.now[:danger] = "ニックネームを入力してください"
-      render :new
     end
   end
 

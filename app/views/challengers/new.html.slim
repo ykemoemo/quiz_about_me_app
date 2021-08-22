@@ -1,0 +1,7 @@
+h1 #{@quiz.creator_name}王
+
+= form_with model: @challenger, url: quiz_challengers_path, local: true do |f|
+  .form-group
+    = f.label :name, "ニックネーム"
+    = f.text_field :name, class: 'form-control'
+  = f.submit '問題を回答する', class: 'btn btn-primary'

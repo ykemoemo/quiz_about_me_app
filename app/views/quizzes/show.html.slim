@@ -4,7 +4,8 @@ br
 - @questions.each do |question|
   h5 = question.body
   - question.choices.each do |choice|
-    p  = choice.body
+    p = choice.body
   br 
 
 p 問題を共有しよう
+= link_to '問題回答画面へ', new_quiz_challenger_path(@quiz)
