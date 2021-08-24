@@ -21,8 +21,13 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = @quiz.questions.create!(question_params)
-    redirect_to quiz_questions_path
+    @question = @quiz.questions.new(question_params)
+    if @question.save
+      redirect_to quiz_questions_path
+    else
+      @questions = @quiz.questions.all.includes(:quiz)
+      render :index
+    end
   end
 
   def edit

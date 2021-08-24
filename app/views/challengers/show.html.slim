@@ -5,7 +5,7 @@ h3 #{@challenger.score} / #{@questions_count} 問正解
 br
 
 h4 ランキング
-- @challengers.each.with_index(1) do |challenger, i|
+- @challengers_ranking.each.with_index(1) do |challenger, i|
   p #{i}位 #{challenger.name} 正解数 #{challenger.score}
 br
 

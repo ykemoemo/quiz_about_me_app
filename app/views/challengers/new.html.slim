@@ -1,6 +1,7 @@
 h1 #{@quiz.creator_name}王
 
 = form_with model: @challenger, url: quiz_challengers_path, local: true do |f|
+  = render "shared/errors.full_messages", object: f.object
   .form-group
     = f.label :name, "ニックネーム"
     = f.text_field :name, class: 'form-control'

@@ -5,7 +5,7 @@ class ChallengersController < ApplicationController
   def show
     @challenger = @quiz.challengers.find(params[:id])
     @questions_count = @quiz.questions.count
-    @challengers = @quiz.challengers.order(score: :DESC)
+    @challengers_ranking = @quiz.challengers.order(score: :DESC)
   end
 
   def new
@@ -15,8 +15,10 @@ class ChallengersController < ApplicationController
   def create
     @question = @quiz.questions.first
     @challenger = @quiz.challengers.new(challenger_params)
-    if @challenger.save!
+    if @challenger.save
       redirect_to quiz_challenger_question_path(@quiz, @challenger, @question)
+    else
+      render 'new'
     end
   end
 

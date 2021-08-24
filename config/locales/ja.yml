@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    attributes:
+      quiz:
+        creator_name: "ニックネーム"
+      question:
+        body: "問題"
+      choices:
+        body: "選択肢"
+        correct_answer: "正解の回答"
+      challenger:
+        name: "ニックネーム"
+        score: "得点"

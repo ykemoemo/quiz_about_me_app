@@ -3,6 +3,7 @@ h1 ○○王！！
 p 概要を入力
 
 = form_with model: @quiz, local: true do |f|
+  = render "shared/errors.full_messages", object: f.object
   .form-group
     = f.label :creator_name, "ニックネーム"
     = f.text_field :creator_name, class: 'form-control'
