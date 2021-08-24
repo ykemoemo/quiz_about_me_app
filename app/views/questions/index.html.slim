@@ -18,7 +18,8 @@ br
 = link_to '作成する', quiz_path(@quiz)
 br
 br
-= form_with model: @question, url: quiz_questions_path, local: true do |f| 
+= form_with model: @question, url: quiz_questions_path, local: true do |f|
+  = render "shared/errors.full_messages", object: f.object
   .form-group
     = f.label :body, "質問"
     = f.text_field :body, class: 'form-control', id: 'question_body'
