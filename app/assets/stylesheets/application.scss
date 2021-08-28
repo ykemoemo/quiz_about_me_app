@@ -1,1 +1,79 @@
 @import "bootstrap";
+
+body {
+    font-family: sans-serif;
+    background-image: url("Colorful-abstract-graffiti-paint_1920x1200.jpeg");
+    background-size: 2000px;
+    width: 100%;
+}
+
+.container {
+    text-align: center;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 270px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 50px 30px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+}
+
+.radius {
+    border-radius:30px;
+    padding: 5px 8px;
+    text-align: center;
+}
+
+.choice-radius {
+    border-radius:20px;
+    width: 90%;
+    margin: 7px;
+    font-size: 0.8em;
+    white-space: normal;
+}
+
+.question-box {
+    border-radius:20px;
+    margin: 2em 0;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+
+.question-box .box-title {
+    border-radius:20px 20px 0px 0px;
+    font-size: 1.0em;
+    background: #4f4f4f;
+    padding: 2px;
+    text-align: center;
+    color: #FFF;
+}
+
+.title h1 {
+    
+}
+
+.question-form {
+    background-color: #4f4f4f;
+    border: none;
+    text-align: center;
+    color: #FFF;
+}
+
+.question-form:focus {
+    background-color: #4f4f4f;
+    border: none;
+    outline: none;
+}
+
+.choice-form {
+    text-align: center;
+    border: none;
+}
+
+.choice-form:focus {
+    text-align: center;
+    border: none;
+    outline: none;
+}
