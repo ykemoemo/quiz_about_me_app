@@ -1,37 +1,37 @@
-h1 クイズ作成ページ
+h2 #{@quiz.creator_name}王
 
-h4 #{@quiz.creator_name}王
-br
 = form_with model: @questions, url: quiz_questions_path, local: true do |f|
   - @questions.each do |question|
-    h4 = question.body
+    h5 = question.body
     = f.fields_for :question do |q|
       - question.choices.each do |choice|
         = q.fields_for :choice do |c|
           .form-group
             = c.check_box :correct_answer
             = c.label :correct_answer, choice.body
-        br
-  = f.submit '作成', class: 'btn btn-primary'
-    br
+  br
+  = f.submit '作成', class: 'radius btn btn-secondary btn-sm'
+  br
   br
 = link_to '作成する', quiz_path(@quiz)
+br
 br
 br
 = form_with model: @question, url: quiz_questions_path, local: true do |f|
   = render "shared/errors.full_messages", object: f.object
   .form-group
     = f.label :body, "質問"
-    = f.text_field :body, class: 'form-control', id: 'question_body'
+    br
+    = f.text_field :body, id: 'question_body'
 
-  = f.fields_for :choices do |c|
-    .form-group
-      = c.check_box :correct_answer
-      = c.text_field :body
-  = f.fields_for :choices do |c|
-    .form-group
-      = c.check_box :correct_answer
-      = c.text_field :body
+    = f.fields_for :choices do |c|
+      .form-group
+        = c.check_box :correct_answer
+        = c.text_field :body
 
-  = f.submit '問題を追加する', class: 'btn btn-primary'
-  
+    = f.fields_for :choices do |c|
+      .form-group
+        = c.check_box :correct_answer
+        = c.text_field :body
+
+  = f.submit '問題を追加', class: 'radius btn-outline-secondary btn-sm'
