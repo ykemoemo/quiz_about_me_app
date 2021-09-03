@@ -13,17 +13,13 @@ class ChallengersController < ApplicationController
   end
 
   def create
-    @question = @quiz.questions.first
     @challenger = @quiz.challengers.new(challenger_params)
     if @challenger.save
+      @question = @quiz.questions.first
       redirect_to quiz_challenger_question_path(@quiz, @challenger, @question)
     else
       render 'new'
     end
-  end
-
-  def update
-    @challenger = @quiz.challengers.find(params[:id])
   end
 
   private

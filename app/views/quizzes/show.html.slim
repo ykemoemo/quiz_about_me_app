@@ -1,11 +1,7 @@
-h1 #{@quiz.creator_name}王を作成しました
+h2 #{@quiz.creator_name}王を作成しました!
+br
 br
 
-- @questions.each do |question|
-  h5 = question.body
-  - question.choices.each do |choice|
-    p = choice.body
-  br 
+= render "quizzes/share_link"
 
-p 問題を共有しよう
-= link_to '問題回答画面へ', new_quiz_challenger_path(@quiz), class: 'radius btn btn-secondary btn-sm'
+= link_to 'トップページへ', root_path, class: 'radius btn btn-secondary'

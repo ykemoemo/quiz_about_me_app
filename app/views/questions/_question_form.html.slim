@@ -1,0 +1,16 @@
+= form_with model: @question, url: quiz_questions_path, class: 'js-form' do |f|
+  = render "shared/errors.full_messages", object: f.object
+  .question-box
+    .form-group
+      .box-title
+        = f.label :body, "質問"
+        br
+        = f.text_field :body, id: 'question_body', class: 'question-form'
+      .choice-form
+        = f.fields_for :choices do |c|
+          = c.text_field :body, class: 'choice-form'
+      .choice-form
+        = f.fields_for :choices do |c|
+          = c.text_field :body, class: 'choice-form'
+  = f.submit '問題を追加', class: 'radius btn-outline-secondary btn-sm'
+  br

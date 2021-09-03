@@ -1,0 +1,27 @@
+#judgement_ajax  
+  .question-box
+    .box-title
+      p = @question.body
+    - @question.choices.each do |choice|
+      - if flash.present?
+        = button_to choice.body, judgement_quiz_challenger_question_choice_path(@quiz.id, @challenger.id, @question.id, choice.id), disabled: true, class: 'choice-radius btn btn-outline-secondary'
+        - if choice.correct_answer == true
+          .text-success
+            p = '○'
+        - else
+          .text-danger
+            p = '×'  
+      - else
+        = button_to choice.body, judgement_quiz_challenger_question_choice_path(@quiz.id, @challenger.id, @question.id, choice.id), class: 'choice-radius btn btn-outline-secondary'
+
+    .notifications
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: key)
+  br
+  br
+  - if @question.next(@quiz).present? && flash.present?
+    = link_to "NEXT",quiz_challenger_question_path(@quiz.id, @challenger.id, @question.id.next), class: 'radius btn-secondary btn-sm'
+
+  -if @question.next(@quiz).blank? && flash.present?
+    = link_to "結果",quiz_challenger_path(@quiz.id, @challenger.id), class: 'radius btn btn-secondary btn-sm'
+  br

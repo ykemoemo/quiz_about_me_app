@@ -1,9 +1,11 @@
 @import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 body {
     font-family: sans-serif;
-    background-image: url("Colorful-abstract-graffiti-paint_1920x1200.jpeg");
-    background-size: 2000px;
+    background-image: url("sozai_image_107531.jpg");
+    background-size: cover;
     width: 100%;
 }
 
@@ -12,12 +14,40 @@ body {
     margin: 0 auto;
     background-color: #fff;
     border-radius: 10px;
-    width: 270px;
+    width: 300px;
     margin-top: 100px;
     margin-bottom: 100px;
-    padding: 50px 30px;
+    padding: 50px 40px;
     border-radius: 50px;
     box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+}
+
+.title {
+	font-size:3em;
+	text-align:center;
+	line-height:0.95em;
+	font-weight:bold;
+	color: transparent;
+	background: linear-gradient( 80deg,
+		#E60012 20%,
+		#F39800 30%,
+		#FFF100 40%,
+		#009944 50%,
+		#0068B7 60%,
+		#1D2088 70%,
+		#920783 80%);
+    -webkit-background-clip: text;
+    padding-top: 15px;
+    padding-bottom: 2px;
+}
+
+.sub-title {
+    font-size:1.1em;
+	text-align:center;
+	line-height:0.95em;
+	letter-spacing: 0.05em;
+	color: transparent;
+	-webkit-text-stroke: 0.03em rgba(0,0,0,1);
 }
 
 .radius {
@@ -36,9 +66,10 @@ body {
 
 .question-box {
     border-radius:20px;
-    margin: 2em 0;
+    margin: 1em 0;
     background: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    position: relative;
 }
 
 .question-box .box-title {
@@ -50,15 +81,24 @@ body {
     color: #FFF;
 }
 
-.title h1 {
-    
+.btn-celect {
+    background: #04be0e;
+    color: #FFF;
 }
+
+.btn-celect:hover {
+    background: #028d09;
+    color: #FFF;
+}
+
 
 .question-form {
     background-color: #4f4f4f;
     border: none;
     text-align: center;
     color: #FFF;
+    height: auto;
+    overflow-wrap: normal;
 }
 
 .question-form:focus {
@@ -69,11 +109,12 @@ body {
 
 .choice-form {
     text-align: center;
-    border: none;
+    padding: 2px;
+    border-radius:20px;
+    border-width: 1px;
 }
 
 .choice-form:focus {
     text-align: center;
-    border: none;
     outline: none;
 }
