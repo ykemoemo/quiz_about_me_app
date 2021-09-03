@@ -2,6 +2,7 @@
   "name": "quiz_about_me_app",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@rails/actioncable": "^6.0.0",
