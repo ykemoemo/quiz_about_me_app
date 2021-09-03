@@ -96,8 +96,8 @@ GEM
     globalid (0.5.2)
       activesupport (>= 5.0)
     hpricot (0.8.6)
-    hpricot (0.8.6-i386-mswin32)
     hpricot (0.8.6-java)
+    hpricot (0.8.6-x86-mswin32)
     html2slim (0.2.0)
       hpricot
     i18n (1.8.10)
@@ -356,9 +356,6 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webpacker (~> 5.0)
   zeroclipboard-rails
-
-RUBY VERSION
-   ruby 2.6.3p62
 
 BUNDLED WITH
    2.2.17
