@@ -1,9 +1,12 @@
-.title
-  h1 ○○王！！
+h1.title
+  | 〇〇王 ! !
+p.sub-title
+  | - quiz about me -
 br
-p 
-p 問題を作成して友達に共有しよう！
+
+p 質問に答えて問題を作成しよう！
 br
+
 = form_with model: @quiz, local: true do |f|
   = render "shared/errors.full_messages", object: f.object
   .form-group

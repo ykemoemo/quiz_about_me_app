@@ -1,6 +1,4 @@
 class QuizzesController < ApplicationController
-  def index
-  end
 
   def show
     @quiz = Quiz.find(params[:id])
@@ -24,9 +22,5 @@ class QuizzesController < ApplicationController
 
   def quiz_params
     params.require(:quiz).permit(:creator_name)
-  end
-
-  def question_params
-    params.require(:question).permit(:body, choices_attributes:[:id, :body, :correct_answer]).merge(quiz_id: params[:quiz_id])
   end
 end

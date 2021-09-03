@@ -1,37 +1,15 @@
 h2 #{@quiz.creator_name}王
+br
 
-= form_with model: @questions, url: quiz_questions_path, local: true do |f|
-  - @questions.each do |question|
-    h5 = question.body
-    = f.fields_for :question do |q|
-      - question.choices.each do |choice|
-        = q.fields_for :choice do |c|
-          .form-group
-            = c.check_box :correct_answer
-            = c.label :correct_answer, choice.body
-  br
-  = f.submit '作成', class: 'radius btn btn-secondary btn-sm'
-  br
-  br
-= link_to '作成する', quiz_path(@quiz)
+
+= render partial: "questions/set_correct_answer", locals: {question: @questions}
+br
+
+= link_to '作成する', quiz_path(@quiz), class: 'radius btn btn-secondary btn-sm'
 br
 br
 br
-= form_with model: @question, url: quiz_questions_path, local: true do |f|
-  = render "shared/errors.full_messages", object: f.object
-  .form-group
-    = f.label :body, "質問"
-    br
-    = f.text_field :body, id: 'question_body'
+br
+br
 
-    = f.fields_for :choices do |c|
-      .form-group
-        = c.check_box :correct_answer
-        = c.text_field :body
-
-    = f.fields_for :choices do |c|
-      .form-group
-        = c.check_box :correct_answer
-        = c.text_field :body
-
-  = f.submit '問題を追加', class: 'radius btn-outline-secondary btn-sm'
+= render partial: "questions/question_form", locals: {question: @question}

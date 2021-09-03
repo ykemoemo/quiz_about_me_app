@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-  has_many :choices
+  has_many :choices, dependent: :destroy
   accepts_nested_attributes_for :choices
   belongs_to :quiz
 

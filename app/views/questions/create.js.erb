@@ -1,0 +1,2 @@
+$('#questions_ajax').html("<%= j(render partial: "questions/set_correct_answer", locals: {question: @questions}) %>");
+$('.js-form')[0].reset();

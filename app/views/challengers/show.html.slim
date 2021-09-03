@@ -5,10 +5,8 @@ h3 #{@challenger.score} / #{@questions_count} 問正解
 br
 br
 
-h4 ランキング
-br
-- @challengers_ranking.each.with_index(1) do |challenger, i|
-  p #{i}位 #{challenger.name} 正解数 #{challenger.score}
-br
+= render "challengers/ranking"
 
-= link_to '問題を作成する', root_path, class: 'radius btn btn-secondary btn-sm'
+= render "challengers/share_link"
+
+= link_to '問題を作成する', root_path, class: 'radius btn btn-secondary'
