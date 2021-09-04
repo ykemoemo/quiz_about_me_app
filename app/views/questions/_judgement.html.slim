@@ -20,7 +20,7 @@
   br
   br
   - if @question.next(@quiz).present? && flash.present?
-    = link_to "NEXT",quiz_challenger_question_path(@quiz.id, @challenger.id, @question.id.next), class: 'radius btn-secondary btn-sm'
+    = link_to "NEXT",quiz_challenger_question_path(@quiz.id, @challenger.id, @question.next), class: 'radius btn-secondary btn-sm'
 
   -if @question.next(@quiz).blank? && flash.present?
     = link_to "結果",quiz_challenger_path(@quiz.id, @challenger.id), class: 'radius btn btn-secondary btn-sm'
