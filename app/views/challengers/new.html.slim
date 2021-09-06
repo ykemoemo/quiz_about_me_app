@@ -4,6 +4,8 @@ br
 p #{@quiz.creator_name}の回答を予想して点数を競い合おう！
 br
 
+= render "challengers/ranking"
+
 = form_with model: @challenger, url: quiz_challengers_path, local: true do |f|
   = render "shared/errors.full_messages", object: f.object
   .form-group
