@@ -1,9 +1,9 @@
 p - 結果をSNSで共有しよう！-
-= link_to "https://twitter.com/share?url=https://quiz-about-me.herokuapp.com/quizzes/#{@quiz.id}/challengers/new&text=「#{@quiz.creator_name}王」#{@challenger.score} / #{@questions_count} 問正解でした！みんなも挑戦してみて！", title: 'Twitter', class: 'choice-radius btn btn-outline-secondary', target: '_blank' do
+= link_to "https://twitter.com/share?url=https://quiz-about-me.herokuapp.com/quizzes/#{@quiz.id}/challengers/new &text=「#{@quiz.creator_name}王」#{@challenger.score} / #{@questions_count} 問正解でした！みんなも挑戦してみて！&hashtags=#{@quiz.creator_name}王", title: 'Twitter', class: 'choice-radius btn btn-outline-secondary', target: '_blank' do
   i.fab.fa-twitter style='color: #3399FF;'
   |  Twitterでシェア
 
-= link_to "https://line.me/R/msg/text/?https://quiz-about-me.herokuapp.com/quizzes/#{@quiz.id}/challengers/new&text=「#{@quiz.creator_name}王」#{@challenger.score} / #{@questions_count} 問正解でした！みんなも挑戦してみて！", title: 'LINE', class: 'choice-radius btn btn-outline-secondary', target: '_blank' do
+= link_to "https://line.me/R/msg/text/?https://quiz-about-me.herokuapp.com/quizzes/#{@quiz.id}/challengers/new &text=「#{@quiz.creator_name}王」#{@challenger.score} / #{@questions_count} 問正解でした！みんなも挑戦してみて！", title: 'LINE', class: 'choice-radius btn btn-outline-secondary', target: '_blank' do
   i.fab.fa-line style='color: #03bb2b;'
   |  LINEでシェア
 br
