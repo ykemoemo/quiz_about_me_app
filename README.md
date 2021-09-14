@@ -11,7 +11,7 @@
 # 機能
 | トップページ | 問題作成画面 | 作成完了画面 |
 | :-: | :-: | :-: |
-| [![Image from Gyazo](https://i.gyazo.com/c9207c9d855825fbbf639ef801df7330.jpg)](https://gyazo.com/c9207c9d855825fbbf639ef801df7330) | [![Image from Gyazo](https://i.gyazo.com/b99de88bd7c2096c13976915d11668dd.gif)](https://gyazo.com/b99de88bd7c2096c13976915d11668dd) | [![Image from Gyazo](https://i.gyazo.com/948f625c1fca098bbe0d9668f976ee18.jpg)](https://gyazo.com/948f625c1fca098bbe0d9668f976ee18) |
+| <img src="https://i.gyazo.com/c9207c9d855825fbbf639ef801df7330.jpg" alt="Image from Gyazo" width="300" height="200"> | <img src="https://i.gyazo.com/b99de88bd7c2096c13976915d11668dd.gif" alt="Image from Gyazo" width="300" height="200"> | <img src="https://i.gyazo.com/948f625c1fca098bbe0d9668f976ee18.jpg" alt="Image from Gyazo" width="300" height="200"> |
 | ニックネームを入力して問題を作成。 | 問題の作成・削除ができる。 | 作成した問題をSNSでシェアする。 |
 |  |  |  |
 
