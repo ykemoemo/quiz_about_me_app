@@ -1,13 +1,19 @@
 # 〇〇王！！
-https://quiz-about-me.herokuapp.com/
-[![Image from Gyazo](https://i.gyazo.com/ce797acba8bac4960ee9dc244f38bb49.jpg)](https://gyazo.com/ce797acba8bac4960ee9dc244f38bb49)
+<https://quiz-about-me.herokuapp.com/>
 
 
 # サービス概要
 「私のことどれだけ知ってる？」をテーマにした、
 質問に対し作成者がどのような回答したかを予想し正解数を競い合う、
 クイズアプリです。
+<https://qiita.com/ykemoemo/items/50b2f21bebbf71481332>
 
+# 機能
+| トップページ | 問題作成画面 | 作成完了画面 |
+| :-: | :-: | :-: |
+| [![Image from Gyazo](https://i.gyazo.com/c9207c9d855825fbbf639ef801df7330.jpg)](https://gyazo.com/c9207c9d855825fbbf639ef801df7330) | [![Image from Gyazo](https://i.gyazo.com/b99de88bd7c2096c13976915d11668dd.gif)](https://gyazo.com/b99de88bd7c2096c13976915d11668dd) | [![Image from Gyazo](https://i.gyazo.com/948f625c1fca098bbe0d9668f976ee18.jpg)](https://gyazo.com/948f625c1fca098bbe0d9668f976ee18) |
+| ニックネームを入力して問題を作成。 | 問題の作成・削除ができる。 | 作成した問題をSNSでシェアする。 |
+|  |  |  |
 
 # ターゲット
 仲間同士でわいわいクイズを楽しみたい、私のことをもっと知ってほしい、あの人のこともっと知りたい、
