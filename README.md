@@ -25,7 +25,7 @@ Youtuberさん達の中で人気の企画「○○王」からインスピレー
 
 | 回答スタートページ | 問題回答ページ | 結果&ランキングページ |
 | :-: | :-: | :-: |
-| <img src="https://i.gyazo.com/f23509b2099ab79dbd9ade1cc4905f56.jpg" alt="Image from Gyazo" width="315" height=auto> | <img src="https://i.gyazo.com/3ed8453d6f8e9eb3eae62b37efc4b966.gif" alt="Image from Gyazo" width="315" height=auto> | <img src="https://i.gyazo.com/31b5da6a63ff579c71bda58e6f78d0b2.jpg" alt="Image from Gyazo" width="315" height=auto> |
+| <img src="https://i.gyazo.com/f23509b2099ab79dbd9ade1cc4905f56.jpg" alt="Image from Gyazo" width="315" height=auto> | <img src="https://i.gyazo.com/3ed8453d6f8e9eb3eae62b37efc4b966.gif" alt="Image from Gyazo" width="315" height=auto> | <img src="https://i.gyazo.com/31b5da6a63ff579c71bda58e6f78d0b2.jpg" alt="Image from Gyazo" width="300" height=auto> |
 | ニックネームを入力して問題に回答する。 | 問題が１問ずつ表示される。 | ランキングの確認と結果をSNSでシェアできる。 |
 |  |  |  |
 <br>
@@ -48,7 +48,7 @@ Youtuberさん達の中で人気の企画「○○王」からインスピレー
 <br>
 
 # ER図
-[![Image from Gyazo](https://i.gyazo.com/c7a710b870bd4718d96b7b15997a4f48.png)](https://gyazo.com/c7a710b870bd4718d96b7b15997a4f48)
+<img src="https://i.gyazo.com/3c7f6b7c8fdb2455b162b894172a64be.png" alt="Image from Gyazo" width="500" height="500">
 <br>
 <br>
 <br>
