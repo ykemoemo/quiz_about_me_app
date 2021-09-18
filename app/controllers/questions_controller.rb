@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
     @questions_count = @quiz.questions.all.count
     if flash.blank?
       @challenger.question_count += 1
-      @challenger.save
+      @challenger.save!
     end
   end
 
