@@ -16,8 +16,8 @@ class ChallengersController < ApplicationController
   def create
     @challenger = @quiz.challengers.new(challenger_params)
     if @challenger.save
-      @question = @quiz.questions.first
-      redirect_to quiz_challenger_question_path(@quiz, @challenger, @question)
+      question = @quiz.questions.first
+      redirect_to quiz_challenger_question_path(@quiz, @challenger, question)
     else
       @challengers_ranking = @quiz.challengers.order(score: :DESC).limit(5)
       render 'new'
