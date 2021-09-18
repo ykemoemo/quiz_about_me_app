@@ -62,8 +62,8 @@ class QuestionsController < ApplicationController
 
     question_3 = Question.create!( quiz_id: params[:quiz_id], body: "どっちが好き？" )
       question_3.choices.create!([
-        { body: "レストラン" },
-        { body: "居酒屋" },
+        { body: "おしゃれなレストラン" },
+        { body: "大衆居酒屋" },
     ])
 
     question_4 = Question.create!( quiz_id: params[:quiz_id], body: "どっちをよく使う？" )
