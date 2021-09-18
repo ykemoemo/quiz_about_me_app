@@ -4,6 +4,7 @@ class ChallengersController < ApplicationController
 
   def show
     @challenger = @quiz.challengers.find(params[:id])
+    @questions = @quiz.questions.all
     @questions_count = @quiz.questions.count
     @challengers_ranking = @quiz.challengers.order(score: :DESC).limit(10)
   end
