@@ -14,6 +14,11 @@ class QuestionsController < ApplicationController
   def show
     @challenger = @quiz.challengers.find(params[:challenger_id])
     @question = @quiz.questions.find(params[:id])
+    @questions_count = @quiz.questions.all.count
+    if flash.blank?
+      @challenger.question_count += 1
+      @challenger.save
+    end
   end
 
   def create
