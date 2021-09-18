@@ -48,66 +48,37 @@ class QuestionsController < ApplicationController
   end
 
   def default_questions
-    question_1 = Question.create!( quiz_id: params[:quiz_id], body: "どっち派？" )
+    question_1 = Question.create!( quiz_id: params[:quiz_id], body: "休みの日は何して過ごす？" )
       question_1.choices.create!([
-        { body: "きのこの山" },
-        { body: "たけのこの里" },
-    ])
+        { body: "お家でゴロゴロ" },
+        { body: "外へおでかけ" },
+      ])
 
-    question_2 = Question.create!( quiz_id: params[:quiz_id], body: "たい焼きはどこから食べる？" )
+    question_2 = Question.create!( quiz_id: params[:quiz_id], body: "高校生の時の部活は？" )
       question_2.choices.create!([
-        { body: "頭" },
-        { body: "尻尾" },
+        { body: "運動部" },
+        { body: "文化部" },
       ])
 
-    question_3 = Question.create!( quiz_id: params[:quiz_id], body: "結婚するなら？" )
+    question_3 = Question.create!( quiz_id: params[:quiz_id], body: "どっちが好き？" )
       question_3.choices.create!([
-        { body: "お金持ちのブサイク" },
-        { body: "貧乏だけどルックスは最高" },
-      ])
-    question_4 = Question.create!( quiz_id: params[:quiz_id], body: "どっちになりたい？" )
+        { body: "レストラン" },
+        { body: "居酒屋" },
+    ])
+
+    question_4 = Question.create!( quiz_id: params[:quiz_id], body: "どっちをよく使う？" )
       question_4.choices.create!([
-        { body: "嫌われ者の大金持ち" },
-        { body: "みんなから愛される貧乏人" },
-      ])
+        { body: "Twitter" },
+        { body: "Instagram" },
+    ])
 
-    question_5 = Question.create!( quiz_id: params[:quiz_id], body: "住むならどっち？" )
+    question_5 = Question.create!( quiz_id: params[:quiz_id], body: "明日世界が滅亡するとしたら？" )
       question_5.choices.create!([
-        { body: "幽霊が出る家" },
-        { body: "ゴキブリだらけの家" },
+        { body: "家族と過ごす" },
+        { body: "好きな人と過ごす" },
     ])
 
-    question_6 = Question.create!( quiz_id: params[:quiz_id], body: "食べるならどっち？" )
-      question_6.choices.create!([
-        { body: "ウ○コ味のカレー" },
-        { body: "カレー味のウ◯コ" },
-    ])
-
-    question_7 = Question.create!( quiz_id: params[:quiz_id], body: "どっちの世界がいい？" )
-      question_7.choices.create!([
-        { body: "一年中真夏" },
-        { body: "一年中真冬" },
-    ])
-
-    question_8 = Question.create!( quiz_id: params[:quiz_id], body: "どっちを選ぶ？" )
-      question_8.choices.create!([
-        { body: "1000万円を確実にもらえる" },
-        { body: "2分の1の確率で1億円をもらえる" },
-    ])
-
-    question_9 = Question.create!( quiz_id: params[:quiz_id], body: "どっちが欲しい？" )
-      question_9.choices.create!([
-        { body: "未来にタイムリープできる能力" },
-        { body: "過去にタイムスリップできる能力" },
-    ])
-
-    question_10 = Question.create!( quiz_id: params[:quiz_id], body: "歌うとしたら？" )
-      question_10.choices.create!([
-        { body: "マイクのないカラオケ" },
-        { body: "サビ前で終わるカラオケ" },
-    ])
-
-    @questions = [ question_1, question_2, question_3, question_4, question_5, question_6, question_7, question_8, question_9, question_10 ]
+    @questions = [ question_1, question_2, question_3, question_4, question_5 ]
   end
 end
  
