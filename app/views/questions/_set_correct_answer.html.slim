@@ -10,3 +10,11 @@
           = button_to choice.body, set_correct_answer_quiz_question_choice_path(@quiz.id, question.id, choice.id), class: 'choice-radius btn btn-outline-secondary', remote: true
       = link_to '削除', quiz_question_path(@quiz.id, question.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'text-secondary', remote: true
     br
+
+  - if @questions.present?
+    = link_to '作成する', quiz_path(@quiz), class: 'radius btn btn-secondary btn-sm'
+    br
+    br
+  - else
+    p 問題を追加してみよう！
+    = link_to 'テンプレートを使う', quiz_questions_path(@quiz.id), class: 'text-secondary btn-sm'

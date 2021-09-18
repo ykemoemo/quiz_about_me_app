@@ -5,6 +5,9 @@ class QuizzesController < ApplicationController
   def show
     @quiz = Quiz.find(params[:id])
     @questions = @quiz.questions.all.includes(:quiz)
+    if @questions.blank?
+      redirect_to quiz_questions_path(@quiz.id)
+    end
   end
 
   def new
@@ -14,7 +17,7 @@ class QuizzesController < ApplicationController
   def create
     @quiz = Quiz.new(quiz_params)
     if @quiz.save
-      redirect_to quiz_questions_path(@quiz.id)
+      render quiz_questions_path(@quiz.id)
     else
       render 'new'
     end

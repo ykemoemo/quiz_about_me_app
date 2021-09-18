@@ -5,11 +5,4 @@ br
 = render partial: "questions/set_correct_answer", locals: {question: @questions}
 br
 
-= link_to '作成する', quiz_path(@quiz), class: 'radius btn btn-secondary btn-sm'
-br
-br
-br
-br
-br
-
 = render partial: "questions/question_form", locals: {question: @question}
