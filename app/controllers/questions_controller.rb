@@ -15,6 +15,11 @@ class QuestionsController < ApplicationController
     @challenger = @quiz.challengers.find(params[:challenger_id])
     @question = @quiz.questions.find(params[:id])
     @questions_count = @quiz.questions.all.count
+    choices = @question.choices.all
+    choices.each do |choice|
+      choice.select_answer = false
+      choice.save
+    end
     if flash.blank?
       @challenger.question_count += 1
       @challenger.save

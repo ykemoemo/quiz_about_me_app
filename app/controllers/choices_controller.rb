@@ -16,14 +16,16 @@ class ChoicesController < ApplicationController
   def judgement
     challenger = @quiz.challengers.find(params[:challenger_id])
     choice = @question.choices.find(params[:id])
+    choice.select_answer = true
+    choice.save
     if choice.correct_answer == true
       challenger.score += 1
       challenger.save
-      flash[:notice] = "正解！！"
-      redirect_to quiz_challenger_question_path(@quiz.id, challenger.id, @question.id)
+    end
+    if @question.next(@quiz).present?
+      redirect_to quiz_challenger_question_path(@quiz.id, challenger.id, @question.next(@quiz))
     else
-      flash[:notice] = "ざんねん！"
-      redirect_to quiz_challenger_question_path(@quiz.id, challenger.id, @question.id)
+      redirect_to quiz_challenger_path(@quiz.id, challenger.id)
     end
   end
 
@@ -32,9 +34,5 @@ class ChoicesController < ApplicationController
   def set_question
     @quiz = Quiz.find(params[:quiz_id])
     @question = @quiz.questions.find(params[:question_id])
-  end
-
-  def correct_answer_params
-    params.require(:question).permit(choices_attributes:[:id, :correct_answer])
   end
 end
