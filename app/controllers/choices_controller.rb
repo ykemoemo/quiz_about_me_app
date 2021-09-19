@@ -1,24 +1,23 @@
 class ChoicesController < ApplicationController
 
-  before_action :set_question
+  before_action :set_quiz_question_choice
 
   def set_correct_answer
-    choice = @question.choices.find(params[:id])
-    if choice.correct_answer == true
+    choices = @question.choices.all
+    choices.each do |choice|
       choice.correct_answer = false
-    else
-      choice.correct_answer = true
+      choice.save
     end
-    choice.save
+    @choice.correct_answer = true
+    @choice.save
     @questions = @quiz.questions.all.includes(:quiz)
   end
 
   def judgement
     challenger = @quiz.challengers.find(params[:challenger_id])
-    choice = @question.choices.find(params[:id])
-    choice.select_answer = true
-    choice.save
-    if choice.correct_answer == true
+    @choice.select_answer = true
+    @choice.save
+    if @choice.correct_answer == true
       challenger.score += 1
       challenger.save
     end
@@ -31,8 +30,9 @@ class ChoicesController < ApplicationController
 
   private
 
-  def set_question
+  def set_quiz_question_choice
     @quiz = Quiz.find(params[:quiz_id])
     @question = @quiz.questions.find(params[:question_id])
+    @choice = @question.choices.find(params[:id])
   end
 end
