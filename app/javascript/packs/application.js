@@ -8,6 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('jquery')
+require("@nathanvda/cocoon")
 require("bootstrap")
 require("@fortawesome/fontawesome-free")
 
@@ -23,6 +24,7 @@ require("@fortawesome/fontawesome-free")
 //= require zeroclipboard
 //= require turbolinks
 //= require_tree .
+//= require cocoon
 
 $(document).ready(function() {
   var clip = new ZeroClipboard($("#d_clip_button"))

@@ -49,39 +49,44 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body, choices_attributes:[:id, :body]).merge(quiz_id: params[:quiz_id])
+    params.require(:question).permit(:body, choices_attributes:[:id, :body, :_destroy]).merge(quiz_id: params[:quiz_id])
   end
 
   def default_questions
-    question_1 = Question.create!( quiz_id: params[:quiz_id], body: "休みの日は何して過ごす？" )
-      question_1.choices.create!([
+    question_1 = Question.new( quiz_id: params[:quiz_id], body: "休みの日は何して過ごす？" )
+      question_1.choices.new([
         { body: "お家でゴロゴロ" },
         { body: "外へおでかけ" },
       ])
+      question_1.save
 
-    question_2 = Question.create!( quiz_id: params[:quiz_id], body: "高校生の時の部活は？" )
-      question_2.choices.create!([
+    question_2 = Question.new( quiz_id: params[:quiz_id], body: "高校生の時の部活は？" )
+      question_2.choices.new([
         { body: "運動部" },
         { body: "文化部" },
       ])
+      question_2.save
 
-    question_3 = Question.create!( quiz_id: params[:quiz_id], body: "どっちが好き？" )
-      question_3.choices.create!([
+    question_3 = Question.new( quiz_id: params[:quiz_id], body: "どっちが好き？" )
+      question_3.choices.new([
         { body: "おしゃれなレストラン" },
         { body: "大衆居酒屋" },
-    ])
+      ])
+      question_3.save
 
-    question_4 = Question.create!( quiz_id: params[:quiz_id], body: "どっちをよく使う？" )
-      question_4.choices.create!([
+    question_4 = Question.new( quiz_id: params[:quiz_id], body: "どっちをよく使う？" )
+      question_4.choices.new([
         { body: "Twitter" },
         { body: "Instagram" },
-    ])
+      ])
+      question_4.save
 
-    question_5 = Question.create!( quiz_id: params[:quiz_id], body: "明日世界が滅亡するとしたら？" )
-      question_5.choices.create!([
+    question_5 = Question.new( quiz_id: params[:quiz_id], body: "明日世界が滅亡するとしたら？" )
+      question_5.choices.new([
         { body: "家族と過ごす" },
         { body: "好きな人と過ごす" },
-    ])
+      ])
+      question_5.save
 
     @questions = [ question_1, question_2, question_3, question_4, question_5 ]
   end
