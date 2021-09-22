@@ -8,9 +8,10 @@
         = f.text_field :body, id: 'question_body', class: 'question-form'
       .choice-form
         = f.fields_for :choices do |c|
-          = c.text_field :body, class: 'choice-form'
-      .choice-form
+          = render "choice_fields", f: c
         = f.fields_for :choices do |c|
-          = c.text_field :body, class: 'choice-form'
+          = render "choice_fields", f: c
+        .links
+          = link_to_add_association "選択肢を追加", f, :choices, class: 'text-secondary btn-sm'       
   = f.submit '問題を追加', class: 'radius btn-outline-secondary btn-sm'
   br

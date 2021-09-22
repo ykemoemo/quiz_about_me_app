@@ -74,3 +74,4 @@ gem 'font-awesome-sass'
 
 gem 'zeroclipboard-rails'
 
+gem 'cocoon'
