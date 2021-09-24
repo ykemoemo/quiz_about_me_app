@@ -11,6 +11,8 @@ class ChoicesController < ApplicationController
     @choice.correct_answer = true
     @choice.save
     @questions = @quiz.questions.all.includes(:quiz)
+    @questions_count = @questions.count
+    @complete_questions_count = @questions.joins(:choices).where(choices: {correct_answer: true}).count
   end
 
   def judgement

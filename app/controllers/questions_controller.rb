@@ -6,8 +6,11 @@ class QuestionsController < ApplicationController
     @questions = @quiz.questions.all.includes(:quiz)
     @question = Question.new
     @question.choices.build
+    @questions_count = @questions.count
+    @complete_questions_count = @questions.joins(:choices).where(choices: {correct_answer: true}).count
     if @questions.blank?
       default_questions
+      @questions_count = @quiz.questions.all.count
     end
   end
 
@@ -40,6 +43,8 @@ class QuestionsController < ApplicationController
     question = @quiz.questions.find(params[:id])
     @questions = @quiz.questions.all.includes(:quiz)
     question.destroy!
+    @questions_count = @quiz.questions.all.count
+    @complete_questions_count = @questions.joins(:choices).where(choices: {correct_answer: true}).count
   end
 
   private
