@@ -11,10 +11,12 @@
       = link_to '削除', quiz_question_path(@quiz.id, question.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'text-secondary', remote: true
     br
 
-  - if @questions.present?
+  - if @questions.present? && @questions_count == @complete_questions_count
     = link_to '作成する', quiz_path(@quiz), class: 'radius btn btn-secondary btn-sm'
     br
     br
+  - elsif @questions.present? && @questions_count != @complete_questions_count
+    p 回答を選択してください
   - else
     p 問題を追加してみよう！
     = link_to 'テンプレートを使う', quiz_questions_path(@quiz.id), class: 'text-secondary btn-sm'
