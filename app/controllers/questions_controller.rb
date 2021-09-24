@@ -33,6 +33,8 @@ class QuestionsController < ApplicationController
     @question = @quiz.questions.new(question_params)
     if @question.save
       @questions = @quiz.questions.all.includes(:quiz)
+      @questions_count = @questions.count
+      @complete_questions_count = @questions.joins(:choices).where(choices: {correct_answer: true}).count
     else
       @questions = @quiz.questions.all.includes(:quiz)
       render "index"
