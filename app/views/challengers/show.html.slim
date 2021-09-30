@@ -5,10 +5,10 @@ br
 h3 #{@challenger.score} / #{@questions_count} 問正解
 br
 
-= render "questions/check_the_answer"
+= render "questions/check_the_answer", questions: @questions, quiz: @quiz
 
-= render "challengers/ranking"
+= render "challengers/ranking", challengers_ranking: @challengers_ranking
 
-= render "challengers/share_link"
+= render "challengers/share_link", quiz: @quiz, questions_count: @questions_count, challenger: @challenger
 
 = link_to '問題を作成する', root_path, class: 'radius btn btn-secondary'

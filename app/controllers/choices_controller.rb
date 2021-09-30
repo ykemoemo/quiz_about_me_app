@@ -35,7 +35,7 @@ class ChoicesController < ApplicationController
   end
 
   def add_score
-    @choice.correct_answer == true if @challenger.score += 1
+    @challenger.score += 1 if @choice.correct_answer == true
     @challenger.save
   end
 end

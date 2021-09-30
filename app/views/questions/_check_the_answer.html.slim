@@ -1,16 +1,16 @@
-- @questions.each do |question|
+- questions.each do |question|
   .question-box
     .box-title
       p = question.body
     - question.choices.each do |choice|
       - if choice.correct_answer == true && choice.select_answer == true
-        = button_to "🎉 " + choice.body + " 🎉", quiz_path(@quiz.id), disabled: true, class: 'choice-radius btn btn-success'
+        = button_to "🎉 " + choice.body + " 🎉", quiz_path(quiz.id), disabled: true, class: 'choice-radius btn btn-success'
       - elsif choice.correct_answer == true && choice.select_answer == false
-        = button_to choice.body, quiz_path(@quiz.id), disabled: true, class: 'choice-radius btn btn-outline-success'
+        = button_to choice.body, quiz_path(quiz.id), disabled: true, class: 'choice-radius btn btn-outline-success'
       - elsif choice.correct_answer == false && choice.select_answer == true
-        = button_to choice.body, quiz_path(@quiz.id), disabled: true, class: 'choice-radius btn btn-danger'
+        = button_to choice.body, quiz_path(quiz.id), disabled: true, class: 'choice-radius btn btn-danger'
       - else
-        = button_to choice.body, quiz_path(@quiz.id), disabled: true, class: 'choice-radius btn btn-outline-danger'
+        = button_to choice.body, quiz_path(quiz.id), disabled: true, class: 'choice-radius btn btn-outline-danger'
 
     - question.choices.each do |choice|
       - if choice.correct_answer == true && choice.select_answer == true
@@ -19,6 +19,6 @@
       - elsif choice.correct_answer == false && choice.select_answer == true
         .text-secondary
           p 不正解
-  br        
+  br
 br
 br

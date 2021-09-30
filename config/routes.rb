@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   root to: 'quizzes#new'
 
   # 問題作成
-  resources :quizzes do
-    resources :questions do
-      resources :choices do
+  resources :quizzes, except: [:edit, :update, :destroy] do
+    resources :questions, except: [:new, :edit, :update] do
+      resources :choices, only: [] do
         member do
           post 'set_correct_answer'
         end
@@ -12,9 +12,9 @@ Rails.application.routes.draw do
     end
 
     # 問題回答
-    resources :challengers do
-      resources :questions do
-        resources :choices do
+    resources :challengers, only: [:show, :new, :create] do
+      resources :questions, except: [:new, :edit, :update] do
+        resources :choices, only: [] do
           member do
             post 'judgement'
           end

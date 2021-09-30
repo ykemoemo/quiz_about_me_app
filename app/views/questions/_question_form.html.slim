@@ -1,4 +1,4 @@
-= form_with model: @question, url: quiz_questions_path, class: 'js-form' do |f|
+= form_with model: question, url: quiz_questions_path, class: 'js-form' do |f|
   = render "shared/errors.full_messages", object: f.object
   .question-box
     .form-group
@@ -12,6 +12,6 @@
         = f.fields_for :choices do |c|
           = render "choice_fields", f: c
         .links
-          = link_to_add_association "選択肢を追加", f, :choices, class: 'text-secondary btn-sm'       
+          = link_to_add_association "選択肢を追加", f, :choices, class: 'text-secondary btn-sm'
   = f.submit '問題を追加', class: 'radius btn-outline-secondary btn-sm'
   br

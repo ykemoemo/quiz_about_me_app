@@ -1,1 +1,1 @@
-$('#judgement_ajax').html("<%= j(render partial: "questions/judgement", locals: {question: @questions}) %>");
+$('#judgement_ajax').html("<%= j(render partial: "questions/judgement", locals: {quiz: @quiz, question: @question, challenger: @challenger}) %>");

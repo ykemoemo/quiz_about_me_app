@@ -60,41 +60,41 @@ class QuestionsController < ApplicationController
   end
 
   def default_questions
-    question_1 = Question.new(quiz_id: params[:quiz_id], body: '休みの日は何して過ごす？')
-    question_1.choices.new([
-                             { body: 'お家でゴロゴロ' },
-                             { body: '外へおでかけ' }
-                           ])
-    question_1.save
+    question1 = Question.new(quiz_id: params[:quiz_id], body: '休みの日は何して過ごす？')
+    question1.choices.new([
+                            { body: 'お家でゴロゴロ' },
+                            { body: '外へおでかけ' }
+                          ])
+    question1.save
 
-    question_2 = Question.new(quiz_id: params[:quiz_id], body: '高校生の時の部活は？')
-    question_2.choices.new([
-                             { body: '運動部' },
-                             { body: '文化部' }
-                           ])
-    question_2.save
+    question2 = Question.new(quiz_id: params[:quiz_id], body: '高校生の時の部活は？')
+    question2.choices.new([
+                            { body: '運動部' },
+                            { body: '文化部' }
+                          ])
+    question2.save
 
-    question_3 = Question.new(quiz_id: params[:quiz_id], body: 'どっちが好き？')
-    question_3.choices.new([
-                             { body: 'おしゃれなレストラン' },
-                             { body: '大衆居酒屋' }
-                           ])
-    question_3.save
+    question3 = Question.new(quiz_id: params[:quiz_id], body: 'どっちが好き？')
+    question3.choices.new([
+                            { body: 'おしゃれなレストラン' },
+                            { body: '大衆居酒屋' }
+                          ])
+    question3.save
 
-    question_4 = Question.new(quiz_id: params[:quiz_id], body: 'どっちをよく使う？')
-    question_4.choices.new([
-                             { body: 'Twitter' },
-                             { body: 'Instagram' }
-                           ])
-    question_4.save
+    question4 = Question.new(quiz_id: params[:quiz_id], body: 'どっちをよく使う？')
+    question4.choices.new([
+                            { body: 'Twitter' },
+                            { body: 'Instagram' }
+                          ])
+    question4.save
 
-    question_5 = Question.new(quiz_id: params[:quiz_id], body: '明日世界が滅亡するとしたら？')
-    question_5.choices.new([
-                             { body: '家族と過ごす' },
-                             { body: '好きな人と過ごす' }
-                           ])
-    question_5.save
+    question5 = Question.new(quiz_id: params[:quiz_id], body: '明日世界が滅亡するとしたら？')
+    question5.choices.new([
+                            { body: '家族と過ごす' },
+                            { body: '好きな人と過ごす' }
+                          ])
+    question5.save
 
-    @questions = [question_1, question_2, question_3, question_4, question_5]
+    @questions = [question1, question2, question3, question4, question5]
   end
 end
