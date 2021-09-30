@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'quizzes#new'
 
-  #問題作成
+  # 問題作成
   resources :quizzes do
     resources :questions do
       resources :choices do
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       end
     end
 
-  #問題回答
+    # 問題回答
     resources :challengers do
       resources :questions do
         resources :choices do

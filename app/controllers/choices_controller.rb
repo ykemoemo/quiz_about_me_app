@@ -1,5 +1,4 @@
 class ChoicesController < ApplicationController
-
   before_action :set_quiz_question_choice
 
   def set_correct_answer
@@ -12,21 +11,18 @@ class ChoicesController < ApplicationController
     @choice.save
     @questions = @quiz.questions.all.includes(:quiz)
     @questions_count = @questions.count
-    @complete_questions_count = @questions.joins(:choices).where(choices: {correct_answer: true}).count
+    @complete_questions_count = @questions.complete_questions_count
   end
 
   def judgement
-    challenger = @quiz.challengers.find(params[:challenger_id])
+    @challenger = @quiz.challengers.find(params[:challenger_id])
     @choice.select_answer = true
     @choice.save
-    if @choice.correct_answer == true
-      challenger.score += 1
-      challenger.save
-    end
+    add_score
     if @question.next(@quiz).present?
-      redirect_to quiz_challenger_question_path(@quiz.id, challenger.id, @question.next(@quiz))
+      redirect_to quiz_challenger_question_path(@quiz.id, @challenger.id, @question.next(@quiz))
     else
-      redirect_to quiz_challenger_path(@quiz.id, challenger.id)
+      redirect_to quiz_challenger_path(@quiz.id, @challenger.id)
     end
   end
 
@@ -36,5 +32,10 @@ class ChoicesController < ApplicationController
     @quiz = Quiz.find(params[:quiz_id])
     @question = @quiz.questions.find(params[:question_id])
     @choice = @question.choices.find(params[:id])
+  end
+
+  def add_score
+    @choice.correct_answer == true if @challenger.score += 1
+    @challenger.save
   end
 end

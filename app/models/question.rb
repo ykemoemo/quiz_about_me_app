@@ -4,9 +4,9 @@ class Question < ApplicationRecord
   belongs_to :quiz
 
   validates :body, length: { maximum: 22 }, presence: true
-  validates :choices, :presence => true
+  validates :choices, presence: true
 
   def next(quiz)
-    quiz.questions.where("id > ?", self.id).order("id ASC").first
+    quiz.questions.where('id > ?', id).order('id ASC').first
   end
 end
