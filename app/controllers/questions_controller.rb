@@ -20,7 +20,6 @@ class QuestionsController < ApplicationController
     choices = @question.choices.all
     choices.update_all(select_answer: false)
     @challenger.increment!(:question_count, 1)
-    @challenger.save
   end
 
   def create
