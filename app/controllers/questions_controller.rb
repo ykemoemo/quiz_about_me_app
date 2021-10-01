@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
     @questions_count = @quiz.questions.all.count
     choices = @question.choices.all
     choices.update_all(select_answer: false)
-    @challenger.question_count += 1
+    @challenger.increment!(:question_count, 1)
     @challenger.save
   end
 
