@@ -3,10 +3,7 @@ class ChoicesController < ApplicationController
 
   def set_correct_answer
     choices = @question.choices.all
-    choices.each do |choice|
-      choice.correct_answer = false
-      choice.save
-    end
+    choices.update_all(correct_answer: false)
     @choice.correct_answer = true
     @choice.save
     @questions = @quiz.questions.all.includes(:quiz)

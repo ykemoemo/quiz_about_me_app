@@ -17,7 +17,8 @@ class QuestionsController < ApplicationController
     @challenger = @quiz.challengers.find(params[:challenger_id])
     @question = @quiz.questions.find(params[:id])
     @questions_count = @quiz.questions.all.count
-    choice_reset
+    choices = @question.choices.all
+    choices.update_all(select_answer: false)
     @challenger.question_count += 1
     @challenger.save
   end
@@ -49,14 +50,6 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:body, choices_attributes: [:id, :body, :_destroy]).merge(quiz_id: params[:quiz_id])
-  end
-
-  def choice_reset
-    choices = @question.choices.all
-    choices.each do |choice|
-      choice.select_answer = false
-      choice.save
-    end
   end
 
   def default_questions
