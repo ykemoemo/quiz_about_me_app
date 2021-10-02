@@ -9,15 +9,15 @@ RSpec.describe Quiz, type: :model do
     end
 
     it 'ニックネームが空のとき無効' do
-      quiz_without_creator_name = build(:quiz, creator_name: "")
+      quiz_without_creator_name = build(:quiz, creator_name: '')
       expect(quiz_without_creator_name).to be_invalid
-      expect(quiz_without_creator_name.errors[:creator_name]).to eq ["を入力してください"]
+      expect(quiz_without_creator_name.errors[:creator_name]).to eq ['を入力してください']
     end
 
     it 'ニックネームが13文字以上の時無効' do
-      quiz_word_count_creator_name = build(:quiz, creator_name: "a" * 13)
+      quiz_word_count_creator_name = build(:quiz, creator_name: 'a' * 13)
       expect(quiz_word_count_creator_name).to be_invalid
-      expect(quiz_word_count_creator_name.errors[:creator_name]).to eq ["は12文字以内で入力してください"]
+      expect(quiz_word_count_creator_name.errors[:creator_name]).to eq ['は12文字以内で入力してください']
     end
   end
 end

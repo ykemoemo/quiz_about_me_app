@@ -1,13 +1,9 @@
 class QuizzesController < ApplicationController
-  def index
-  end
+  def index; end
 
   def show
     @quiz = Quiz.find(params[:id])
     @questions = @quiz.questions.all.includes(:quiz)
-    if @questions.blank?
-      redirect_to quiz_questions_path(@quiz.id)
-    end
   end
 
   def new

@@ -1,8 +1,8 @@
-#judgement_ajax  
+#judgement_ajax
   .question-box
     .box-title
-      p = @question.body
-    - @question.choices.each do |choice|
-      = button_to choice.body, judgement_quiz_challenger_question_choice_path(@quiz.id, @challenger.id, @question.id, choice.id), class: 'choice-radius btn btn-outline-secondary', remote: true
+      p = question.body
+    - question.choices.each do |choice|
+      = button_to choice.body, judgement_quiz_challenger_question_choice_path(quiz.id, challenger.id, question.id, choice.id), class: 'choice-radius btn btn-outline-secondary', remote: true
   br
   br

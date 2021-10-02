@@ -2,7 +2,7 @@ h2 #{@quiz.creator_name}王
 br
 
 
-= render partial: "questions/set_correct_answer", locals: {question: @questions}
+= render "questions/set_correct_answer", questions: @questions, quiz: @quiz, questions_count: @questions_count, complete_questions_count: @complete_questions_count
 br
 
-= render partial: "questions/question_form", locals: {question: @question}
+= render "questions/question_form", question: @question

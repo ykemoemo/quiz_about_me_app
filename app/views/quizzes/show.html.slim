@@ -2,6 +2,6 @@ h2 #{@quiz.creator_name}王を作成しました!
 br
 br
 
-= render "quizzes/share_link"
+= render "quizzes/share_link", quiz: @quiz
 
 = link_to 'トップページへ', root_path, class: 'radius btn btn-secondary'

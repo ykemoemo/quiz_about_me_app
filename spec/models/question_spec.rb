@@ -9,21 +9,21 @@ RSpec.describe Question, type: :model do
     end
 
     it '質問が空のとき無効' do
-      question_without_body = build(:question, body: "")
+      question_without_body = build(:question, body: '')
       expect(question_without_body).to be_invalid
-      expect(question_without_body.errors[:body]).to eq ["を入力してください"]
+      expect(question_without_body.errors[:body]).to eq ['を入力してください']
     end
 
     it '質問が23文字以上のとき無効' do
-      question_word_count_body = build(:question, body: "a" * 23)
+      question_word_count_body = build(:question, body: 'a' * 23)
       expect(question_word_count_body).to be_invalid
-      expect(question_word_count_body.errors[:body]).to eq ["は22文字以内で入力してください"]
+      expect(question_word_count_body.errors[:body]).to eq ['は22文字以内で入力してください']
     end
 
     it '選択肢がnilのとき問題が作成できないこと' do
       question_without_choice = build(:question)
       expect(question_without_choice).to be_invalid
-      expect(question_without_choice.errors[:choices]).to eq ["を入力してください"]
+      expect(question_without_choice.errors[:choices]).to eq ['を入力してください']
     end
   end
 end
