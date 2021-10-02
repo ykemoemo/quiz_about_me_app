@@ -23,6 +23,7 @@ require("@fortawesome/fontawesome-free")
 //= require rails-ujs
 //= require zeroclipboard
 //= require turbolinks
+//= require bootstrap.min
 //= require_tree .
 //= require cocoon
 
