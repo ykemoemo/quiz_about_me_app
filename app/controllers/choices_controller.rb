@@ -3,8 +3,8 @@ class ChoicesController < ApplicationController
 
   def set_correct_answer
     choices = @question.choices.all
-    choices.update_all(correct_answer: false)
-    @choice.update(correct_answer: true)
+    choices.correct_answers_false(choices)
+    @choice.correct_answer_true(@choice)
     @questions = @quiz.questions.all.includes(:quiz)
     @questions_count = @questions.count
     @complete_questions_count = @questions.complete_questions_count
@@ -12,9 +12,9 @@ class ChoicesController < ApplicationController
 
   def judgement
     @challenger = @quiz.challengers.find(params[:challenger_id])
-    @choice.update(select_answer: true)
-    @challenger.increment!(:score, 1) if @choice.correct_answer == true
-    if @question.next(@quiz).present?
+    @choice.select_answer_true(@choice)
+    @challenger.add_score(@challenger) if @choice.correct_answer?(@choice)
+    if @question.next?(@quiz, @question)
       redirect_to quiz_challenger_question_path(@quiz.id, @challenger.id, @question.next(@quiz))
     else
       redirect_to quiz_challenger_path(@quiz.id, @challenger.id)

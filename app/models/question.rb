@@ -9,4 +9,8 @@ class Question < ApplicationRecord
   def next(quiz)
     quiz.questions.where('id > ?', id).order('id ASC').first
   end
+
+  def next?(quiz, question)
+    question.next(quiz).present?
+  end
 end

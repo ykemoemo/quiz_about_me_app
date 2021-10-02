@@ -18,8 +18,8 @@ class QuestionsController < ApplicationController
     @question = @quiz.questions.find(params[:id])
     @questions_count = @quiz.questions.all.count
     choices = @question.choices.all
-    choices.update_all(select_answer: false)
-    @challenger.increment!(:question_count, 1)
+    choices.select_answers_false(choices)
+    @challenger.add_question_count(@challenger)
   end
 
   def create
