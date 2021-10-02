@@ -1,44 +1,32 @@
 class QuestionsController < ApplicationController
   before_action :set_quiz
+  before_action :set_questions_count
+  before_action :set_complete_questions_count, expect: [:show]
 
   def index
-    @questions = @quiz.questions.all.includes(:quiz)
     @question = Question.new
     @question.choices.build
-    @questions_count = @questions.count
-    @complete_questions_count = @questions.complete_questions_count
-    return unless @questions.blank?
+    return if @questions.present?
 
-    default_questions
-    @questions_count = @quiz.questions.all.count
+    set_default_questions
   end
 
   def show
     @challenger = @quiz.challengers.find(params[:challenger_id])
     @question = @quiz.questions.find(params[:id])
-    @questions_count = @quiz.questions.all.count
-    choices = @question.choices.all
-    choices.select_answers_false(choices)
-    @challenger.add_question_count(@challenger)
+    reset_select_answer
   end
 
   def create
     @question = @quiz.questions.new(question_params)
-    if @question.save
-      @questions = @quiz.questions.all.includes(:quiz)
-      @questions_count = @questions.count
-      @complete_questions_count = @questions.complete_questions_count
-    else
-      render 'index'
-    end
+    return if @question.save
+
+    render 'index'
   end
 
   def destroy
     question = @quiz.questions.find(params[:id])
-    @questions = @quiz.questions.all.includes(:quiz)
     question.destroy!
-    @questions_count = @quiz.questions.all.count
-    @complete_questions_count = @questions.complete_questions_count
   end
 
   private
@@ -51,42 +39,23 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:body, choices_attributes: [:id, :body, :_destroy]).merge(quiz_id: params[:quiz_id])
   end
 
-  def default_questions
-    question1 = Question.new(quiz_id: params[:quiz_id], body: '休みの日は何して過ごす？')
-    question1.choices.new([
-                            { body: 'お家でゴロゴロ' },
-                            { body: '外へおでかけ' }
-                          ])
-    question1.save
+  def set_default_questions
+    @questions = @quiz.questions.default_questions(@quiz)
+    @questions_count = @quiz.questions.all.count
+  end
 
-    question2 = Question.new(quiz_id: params[:quiz_id], body: '高校生の時の部活は？')
-    question2.choices.new([
-                            { body: '運動部' },
-                            { body: '文化部' }
-                          ])
-    question2.save
+  def set_questions_count
+    @questions = @quiz.questions.all.includes(:quiz)
+    @questions_count = @questions.count
+  end
 
-    question3 = Question.new(quiz_id: params[:quiz_id], body: 'どっちが好き？')
-    question3.choices.new([
-                            { body: 'おしゃれなレストラン' },
-                            { body: '大衆居酒屋' }
-                          ])
-    question3.save
+  def set_complete_questions_count
+    @complete_questions_count = @questions.complete_questions_count
+  end
 
-    question4 = Question.new(quiz_id: params[:quiz_id], body: 'どっちをよく使う？')
-    question4.choices.new([
-                            { body: 'Twitter' },
-                            { body: 'Instagram' }
-                          ])
-    question4.save
-
-    question5 = Question.new(quiz_id: params[:quiz_id], body: '明日世界が滅亡するとしたら？')
-    question5.choices.new([
-                            { body: '家族と過ごす' },
-                            { body: '好きな人と過ごす' }
-                          ])
-    question5.save
-
-    @questions = [question1, question2, question3, question4, question5]
+  def reset_select_answer
+    choices = @question.choices.all
+    choices.select_answers_false(choices)
+    @challenger.add_question_count(@challenger)
   end
 end
