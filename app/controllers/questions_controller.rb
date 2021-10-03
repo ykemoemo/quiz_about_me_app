@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_quiz
+  before_action :set_quiz_questions
   before_action :set_questions_count
   before_action :set_complete_questions_count, expect: [:show]
 
@@ -31,8 +31,9 @@ class QuestionsController < ApplicationController
 
   private
 
-  def set_quiz
+  def set_quiz_questions
     @quiz = Quiz.find(params[:quiz_id])
+    @questions = @quiz.questions.all.includes(:quiz)
   end
 
   def question_params
@@ -45,7 +46,6 @@ class QuestionsController < ApplicationController
   end
 
   def set_questions_count
-    @questions = @quiz.questions.all.includes(:quiz)
     @questions_count = @questions.count
   end
 
