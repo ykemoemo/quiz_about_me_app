@@ -2,7 +2,7 @@ ja:
   activerecord:
     attributes:
       quiz:
-        creator_name: "ニックネーム"
+        creator_name: "クイズタイトル"
       question:
         body: "問題"
       choices:
