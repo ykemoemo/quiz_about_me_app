@@ -113,9 +113,20 @@ body {
     margin: 3px 2px;
     border-radius:20px;
     border-width: 1px;
+    border: none;
 }
 
 .choice-form:focus {
     text-align: center;
     outline: none;
+}
+
+.title-box {
+    padding: 0px 0px 0px 14px;
+    display: flex;
+}
+
+.ou {
+    margin-top: 6px;
+    margin-left: 2px;
 }
