@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   resources :quizzes, except: [:edit, :update, :destroy] do
     resources :questions, except: [:new, :edit, :update] do
       resources :choices, only: [] do
-        member do
-          post 'set_correct_answer'
-        end
+        post '/set_correct_answers', to: 'set_correct_answers#create'
       end
     end
 
@@ -18,9 +16,7 @@ Rails.application.routes.draw do
     resources :challengers, only: [:show, :new, :create] do
       resources :questions, except: [:new, :edit, :update] do
         resources :choices, only: [] do
-          member do
-            post 'judgement'
-          end
+          post '/judgements', to: 'judgements#create'
         end
       end
     end
