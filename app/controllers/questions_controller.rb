@@ -1,9 +1,10 @@
 class QuestionsController < ApplicationController
   before_action :set_quiz_questions
-  before_action :set_questions_count
-  before_action :set_complete_questions_count, expect: [:show]
+  before_action :set_questions_count, expect: [:destroy]
+  before_action :set_complete_questions_count, expect: [:show, :destroy]
 
   def index
+    redirect_to root_path if quiz_already_created?
     @question = Question.new
     @question.choices.build
     return if @questions.present?
@@ -27,6 +28,8 @@ class QuestionsController < ApplicationController
   def destroy
     question = @quiz.questions.find(params[:id])
     question.destroy!
+    set_questions_count
+    set_complete_questions_count
   end
 
   private
@@ -57,5 +60,9 @@ class QuestionsController < ApplicationController
     choices = @question.choices.all
     choices.select_answers_false(choices)
     @challenger.add_question_count(@challenger)
+  end
+
+  def quiz_already_created?
+    @questions.present? && @questions_count == @complete_questions_count
   end
 end

@@ -7,7 +7,7 @@
         - if choice.correct_answer == true
           = button_to choice.body, quiz_question_choice_set_correct_answers_path(quiz.id, question.id, choice.id), class: 'choice-radius btn btn-celect', remote: true
         - else
-          = button_to choice.body, quiz_question_choice_set_correct_answers_path(quiz, question.id, choice.id), class: 'choice-radius btn btn-outline-secondary', remote: true
+          = button_to choice.body, quiz_question_choice_set_correct_answers_path(quiz.id, question.id, choice.id), class: 'choice-radius btn btn-outline-secondary', remote: true
       = link_to '削除', quiz_question_path(quiz.id, question.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'text-secondary', remote: true
     br
 
