@@ -11,6 +11,7 @@
       gtag('config', 'G-EL9ELL5RGK');
     </script>
     <title><%= content_for?(:html_title) ? yield(:html_title) : "〇〇王！！ - quiz about me -" %></title>
+    <%= favicon_link_tag('favicon.png') %>
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
