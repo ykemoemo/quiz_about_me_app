@@ -48,7 +48,7 @@ Youtuberさん達の中で人気の企画「○○王」からインスピレー
 <br>
 
 # ER図
-<img src="https://i.gyazo.com/8b1d12bfd0e3504083f3f990d4ca0dc7.png" alt="Image from Gyazo" width="500" height="500">
+<img src="https://i.gyazo.com/a09308f6a88ffb0b84f49b5468b023de.png" alt="Image from Gyazo" width="500" height="500">
 <br>
 <br>
 <br>
